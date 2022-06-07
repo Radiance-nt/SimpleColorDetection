@@ -11,6 +11,8 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 while True:
     ret, frame = video.read()
+    if not ret:
+        break;
     frame1 = cv2.GaussianBlur(frame, (21, 21), 0)
     hsv = cv2.cvtColor(frame1, cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(hsv, lg, ug)
